@@ -641,10 +641,9 @@ static void bisect_rev_setup(struct rev_info *revs, const char *prefix,
 	/* XXX leak rev_argv, as "revs" may still be pointing to it */
 }
 
-static void bisect_common(struct rev_info *revs,
-			  struct object_array *old_pending_ptr)
+static void bisect_common(struct rev_info *revs)
 {
-	if (prepare_revision_walk_extended(revs, old_pending_ptr))
+	if (prepare_revision_walk(revs))
 		die("revision walk setup failed");
 	if (revs->tree_objects)
 		mark_edges_uninteresting(revs, NULL);
@@ -826,7 +825,15 @@ static int check_ancestors(const char *prefix)
 	bisect_rev_setup(&revs, prefix, "^%s", "%s", 0);
 
 	/* Save pending objects, so they can be cleaned up later. */
-	bisect_common(&revs, &pending_copy);
+	pending_copy = revs.pending;
+	revs.leak_pending = 1;
+
+	/*
+	 * bisect_common calls prepare_revision_walk right away, which
+	 * (together with .leak_pending = 1) makes us the sole owner of
+	 * the list of pending objects.
+	 */
+	bisect_common(&revs);
 	res = (revs.commits != NULL);
 
 	/* Clean up objects used, as they will be reused. */
@@ -957,7 +964,7 @@ int bisect_next_all(const char *prefix, int no_checkout)
 	bisect_rev_setup(&revs, prefix, "%s", "^%s", 1);
 	revs.limited = 1;
 
-	bisect_common(&revs, NULL);
+	bisect_common(&revs);
 
 	find_bisection(&revs.commits, &reaches, &all, !!skipped_revs.nr);
 	revs.commits = managed_skipped(revs.commits, &tried);

@@ -2844,12 +2844,6 @@ void reset_revision_walk(void)
 
 int prepare_revision_walk(struct rev_info *revs)
 {
-	return prepare_revision_walk_extended(revs, NULL);
-}
-
-int prepare_revision_walk_extended(struct rev_info *revs,
-				   struct object_array *old_pending_ptr)
-{
 	int i;
 	struct object_array old_pending;
 	struct commit_list **next = &revs->commits;
@@ -2868,9 +2862,7 @@ int prepare_revision_walk_extended(struct rev_info *revs,
 			}
 		}
 	}
-	if (old_pending_ptr)
-		*old_pending_ptr = old_pending;
-	else
+	if (!revs->leak_pending)
 		object_array_clear(&old_pending);
 
 	/* Signal whether we need per-parent treesame decoration */
