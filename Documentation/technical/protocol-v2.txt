@@ -89,3 +89,29 @@ terminate the connection.
 Commands are the core actions that a client wants to perform (fetch, push,
 etc).  Each command will be provided with a list capabilities and
 arguments as requested by a client.
+
+ Ls-refs
+---------
+
+Ls-refs is the command used to request a reference advertisement in v2.
+Unlike the current reference advertisement, ls-refs takes in parameters
+which can be used to limit the refs sent from the server.
+
+Ls-ref takes in the following parameters wraped in packet-lines:
+
+  symrefs: In addition to the object pointed by it, show the underlying
+	   ref pointed by it when showing a symbolic ref.
+  peel: Show peeled tags.
+  ref-pattern <pattern>: When specified, only references matching the
+			 given patterns are displayed.
+
+The output of ls-refs is as follows:
+
+    output = *ref
+	     flush-pkt
+    ref = PKT-LINE((tip | peeled) LF)
+    tip = obj-id SP refname (SP symref-target)
+    peeled = obj-id SP refname "^{}"
+
+    symref = PKT-LINE("symref" SP symbolic-ref SP resolved-ref LF)
+    shallow = PKT-LINE("shallow" SP obj-id LF)
