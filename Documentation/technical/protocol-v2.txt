@@ -115,3 +115,17 @@ The output of ls-refs is as follows:
 
     symref = PKT-LINE("symref" SP symbolic-ref SP resolved-ref LF)
     shallow = PKT-LINE("shallow" SP obj-id LF)
+
+ Fetch
+-------
+
+Fetch will need to be a modified version of the v1 fetch protocol.  Some
+potential areas for improvement are: Ref-in-want, CDN offloading,
+Fetch-options.
+
+Since we'll have an 'ls-ref' service we can eliminate the need of fetch
+to perform a ref-advertisement, instead a client can run the 'ls-refs'
+service first, in order to find out what refs the server has, and then
+request those refs directly using the fetch service.
+
+//TODO Flesh out the design
