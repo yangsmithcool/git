@@ -1104,6 +1104,12 @@ int cmd_upload_pack(int argc, const char **argv, const char *prefix)
 	git_config(upload_pack_config, NULL);
 
 	switch (determine_protocol_version_server()) {
+	case protocol_v2:
+		/*
+		 * fetch support for protocol v2 has not been implemented yet,
+		 * so ignore the request to use v2 and fallback to using v0.
+		 */
+		break;
 	case protocol_v1:
 		/*
 		 * v1 is just the original protocol with a version string,

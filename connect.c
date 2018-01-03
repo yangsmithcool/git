@@ -84,6 +84,9 @@ enum protocol_version discover_version(struct packet_reader *reader)
 
 	/* Maybe process capabilities here, at least for v2 */
 	switch (version) {
+	case protocol_v2:
+		die("support for protocol v2 not implemented yet");
+		break;
 	case protocol_v1:
 		/* Read the peeked version line */
 		packet_reader_read(reader);
