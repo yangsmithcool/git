@@ -2968,7 +2968,7 @@ test_expect_success '10b-setup: Overwrite untracked with dir rename + delete' '
 	)
 '
 
-test_expect_failure '10b-check: Overwrite untracked with dir rename + delete' '
+test_expect_success '10b-check: Overwrite untracked with dir rename + delete' '
 	(
 		cd 10b &&
 
@@ -3046,7 +3046,7 @@ test_expect_success '10c-setup: Overwrite untracked with dir rename/rename(1to2)
 	)
 '
 
-test_expect_failure '10c-check: Overwrite untracked with dir rename/rename(1to2)' '
+test_expect_success '10c-check: Overwrite untracked with dir rename/rename(1to2)' '
 	(
 		cd 10c &&
 
@@ -3121,7 +3121,7 @@ test_expect_success '10d-setup: Delete untracked with dir rename/rename(2to1)' '
 	)
 '
 
-test_expect_failure '10d-check: Delete untracked with dir rename/rename(2to1)' '
+test_expect_success '10d-check: Delete untracked with dir rename/rename(2to1)' '
 	(
 		cd 10d &&
 
