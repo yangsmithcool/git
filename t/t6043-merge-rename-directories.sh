@@ -69,7 +69,7 @@ test_expect_success '1a-setup: Simple directory rename detection' '
 	)
 '
 
-test_expect_failure '1a-check: Simple directory rename detection' '
+test_expect_success '1a-check: Simple directory rename detection' '
 	(
 		cd 1a &&
 
@@ -136,7 +136,7 @@ test_expect_success '1b-setup: Merge a directory with another' '
 	)
 '
 
-test_expect_failure '1b-check: Merge a directory with another' '
+test_expect_success '1b-check: Merge a directory with another' '
 	(
 		cd 1b &&
 
@@ -194,7 +194,7 @@ test_expect_success '1c-setup: Transitive renaming' '
 	)
 '
 
-test_expect_failure '1c-check: Transitive renaming' '
+test_expect_success '1c-check: Transitive renaming' '
 	(
 		cd 1c &&
 
@@ -263,7 +263,7 @@ test_expect_success '1d-setup: Directory renames cause a rename/rename(2to1) con
 	)
 '
 
-test_expect_failure '1d-check: Directory renames cause a rename/rename(2to1) conflict' '
+test_expect_success '1d-check: Directory renames cause a rename/rename(2to1) conflict' '
 	(
 		cd 1d &&
 
@@ -342,7 +342,7 @@ test_expect_success '1e-setup: Renamed directory, with all files being renamed t
 	)
 '
 
-test_expect_failure '1e-check: Renamed directory, with all files being renamed too' '
+test_expect_success '1e-check: Renamed directory, with all files being renamed too' '
 	(
 		cd 1e &&
 
@@ -408,7 +408,7 @@ test_expect_success '1f-setup: Split a directory into two other directories' '
 	)
 '
 
-test_expect_failure '1f-check: Split a directory into two other directories' '
+test_expect_success '1f-check: Split a directory into two other directories' '
 	(
 		cd 1f &&
 
@@ -899,7 +899,7 @@ test_expect_success '5a-setup: Merge directories, other side adds files to origi
 	)
 '
 
-test_expect_failure '5a-check: Merge directories, other side adds files to original and target' '
+test_expect_success '5a-check: Merge directories, other side adds files to original and target' '
 	(
 		cd 5a &&
 
@@ -973,7 +973,7 @@ test_expect_success '5b-setup: Rename/delete in order to get add/add/add conflic
 	)
 '
 
-test_expect_failure '5b-check: Rename/delete in order to get add/add/add conflict' '
+test_expect_success '5b-check: Rename/delete in order to get add/add/add conflict' '
 	(
 		cd 5b &&
 
@@ -1053,7 +1053,7 @@ test_expect_success '5c-setup: Transitive rename would cause rename/rename/renam
 	)
 '
 
-test_expect_failure '5c-check: Transitive rename would cause rename/rename/rename/add/add/add' '
+test_expect_success '5c-check: Transitive rename would cause rename/rename/rename/add/add/add' '
 	(
 		cd 5c &&
 
@@ -1137,7 +1137,7 @@ test_expect_success '5d-setup: Directory/file/file conflict due to directory ren
 	)
 '
 
-test_expect_failure '5d-check: Directory/file/file conflict due to directory rename' '
+test_expect_success '5d-check: Directory/file/file conflict due to directory rename' '
 	(
 		cd 5d &&
 
@@ -1575,7 +1575,7 @@ test_expect_success '7a-setup: rename-dir vs. rename-dir (NOT split evenly) PLUS
 	)
 '
 
-test_expect_failure '7a-check: rename-dir vs. rename-dir (NOT split evenly) PLUS add-other-file' '
+test_expect_success '7a-check: rename-dir vs. rename-dir (NOT split evenly) PLUS add-other-file' '
 	(
 		cd 7a &&
 
@@ -1647,7 +1647,7 @@ test_expect_success '7b-setup: rename/rename(2to1), but only due to transitive r
 	)
 '
 
-test_expect_failure '7b-check: rename/rename(2to1), but only due to transitive rename' '
+test_expect_success '7b-check: rename/rename(2to1), but only due to transitive rename' '
 	(
 		cd 7b &&
 
@@ -1723,7 +1723,7 @@ test_expect_success '7c-setup: rename/rename(1to...2or3); transitive rename may 
 	)
 '
 
-test_expect_failure '7c-check: rename/rename(1to...2or3); transitive rename may add complexity' '
+test_expect_success '7c-check: rename/rename(1to...2or3); transitive rename may add complexity' '
 	(
 		cd 7c &&
 
@@ -1787,7 +1787,7 @@ test_expect_success '7d-setup: transitive rename involved in rename/delete; how 
 	)
 '
 
-test_expect_failure '7d-check: transitive rename involved in rename/delete; how is it reported?' '
+test_expect_success '7d-check: transitive rename involved in rename/delete; how is it reported?' '
 	(
 		cd 7d &&
 
@@ -1877,7 +1877,7 @@ test_expect_success '7e-setup: transitive rename in rename/delete AND dirs in th
 	)
 '
 
-test_expect_failure '7e-check: transitive rename in rename/delete AND dirs in the way' '
+test_expect_success '7e-check: transitive rename in rename/delete AND dirs in the way' '
 	(
 		cd 7e &&
 
@@ -1968,7 +1968,7 @@ test_expect_success '8a-setup: Dual-directory rename, one into the others way' '
 	)
 '
 
-test_expect_failure '8a-check: Dual-directory rename, one into the others way' '
+test_expect_success '8a-check: Dual-directory rename, one into the others way' '
 	(
 		cd 8a &&
 
@@ -2113,7 +2113,7 @@ test_expect_success '8c-setup: rename+modify/delete' '
 	)
 '
 
-test_expect_failure '8c-check: rename+modify/delete' '
+test_expect_success '8c-check: rename+modify/delete' '
 	(
 		cd 8c &&
 
@@ -2200,7 +2200,7 @@ test_expect_success '8d-setup: rename/delete...or not?' '
 	)
 '
 
-test_expect_failure '8d-check: rename/delete...or not?' '
+test_expect_success '8d-check: rename/delete...or not?' '
 	(
 		cd 8d &&
 
@@ -2275,7 +2275,7 @@ test_expect_success '8e-setup: Both sides rename, one side adds to original dire
 	)
 '
 
-test_expect_failure '8e-check: Both sides rename, one side adds to original directory' '
+test_expect_success '8e-check: Both sides rename, one side adds to original directory' '
 	(
 		cd 8e &&
 
@@ -2362,7 +2362,7 @@ test_expect_success '9a-setup: Inner renamed directory within outer renamed dire
 	)
 '
 
-test_expect_failure '9a-check: Inner renamed directory within outer renamed directory' '
+test_expect_success '9a-check: Inner renamed directory within outer renamed directory' '
 	(
 		cd 9a &&
 
@@ -2432,7 +2432,7 @@ test_expect_success '9b-setup: Transitive rename with content merge' '
 	)
 '
 
-test_expect_failure '9b-check: Transitive rename with content merge' '
+test_expect_success '9b-check: Transitive rename with content merge' '
 	(
 		cd 9b &&
 
@@ -2522,7 +2522,7 @@ test_expect_success '9c-setup: Doubly transitive rename?' '
 	)
 '
 
-test_expect_failure '9c-check: Doubly transitive rename?' '
+test_expect_success '9c-check: Doubly transitive rename?' '
 	(
 		cd 9c &&
 
@@ -2610,7 +2610,7 @@ test_expect_success '9d-setup: N-way transitive rename?' '
 	)
 '
 
-test_expect_failure '9d-check: N-way transitive rename?' '
+test_expect_success '9d-check: N-way transitive rename?' '
 	(
 		cd 9d &&
 
@@ -2688,7 +2688,7 @@ test_expect_success '9e-setup: N-to-1 whammo' '
 	)
 '
 
-test_expect_failure C_LOCALE_OUTPUT '9e-check: N-to-1 whammo' '
+test_expect_success C_LOCALE_OUTPUT '9e-check: N-to-1 whammo' '
 	(
 		cd 9e &&
 
@@ -2766,7 +2766,7 @@ test_expect_success '9f-setup: Renamed directory that only contained immediate s
 	)
 '
 
-test_expect_failure '9f-check: Renamed directory that only contained immediate subdirs' '
+test_expect_success '9f-check: Renamed directory that only contained immediate subdirs' '
 	(
 		cd 9f &&
 
