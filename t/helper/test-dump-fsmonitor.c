@@ -9,7 +9,7 @@ int cmd_main(int ac, const char **av)
 
 	git_config_push_parameter("core.fsmonitor=keep");
 	setup_git_directory();
-	if (read_index_from(istate, get_index_file()) < 0)
+	if (read_index_from(istate, get_index_file(), get_git_dir()) < 0)
 		die("unable to read index file");
 	if (!istate->fsmonitor_last_update) {
 		printf("no fsmonitor\n");
