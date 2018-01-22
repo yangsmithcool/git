@@ -1865,14 +1865,14 @@ static int open_cached_dir(struct cached_dir *cdir,
 		return 0;
 	c_path = path->len ? path->buf : ".";
 	cdir->fdir = opendir(c_path);
+	if (!cdir->fdir)
+		warning_errno(_("could not open directory '%s'"), c_path);
 	if (dir->untracked) {
 		invalidate_directory(dir->untracked, untracked);
 		dir->untracked->dir_opened++;
 	}
-	if (!cdir->fdir) {
-		warning_errno(_("could not open directory '%s'"), c_path);
+	if (!cdir->fdir)
 		return -1;
-	}
 	return 0;
 }
 
